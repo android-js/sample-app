@@ -1,0 +1,23 @@
+{
+  "name": "myapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js",
+    "build": "androidjs build"
+  },
+  "dist-path": "./dist",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "Buffer": "0.0.0",
+    "FileReader": "^0.10.2",
+    "androidjs": "^1.0.1",
+    "ip": "^1.1.5",
+    "left-pad": "^1.3.0",
+    "localtunnel": "^1.9.1",
+    "public-ip": "^3.0.0",
+    "socket.io": "^2.2.0"
+  }
+}
