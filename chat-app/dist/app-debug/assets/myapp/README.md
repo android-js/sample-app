@@ -1,6 +1,0 @@
-
-## Build
-```bash
-$ androidjs b
-```
-
