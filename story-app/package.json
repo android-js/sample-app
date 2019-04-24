@@ -1,0 +1,19 @@
+{
+  "name": "myapp",
+  "app-name": "myapp",
+  "package-name" : "mypkg",
+  "icon": "./assets/icon/icon.png",
+  "permission": ["android.permission.INTERNET", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.READ_EXTERNAL_STORAGE"],
+  "version": "1.0.0",
+  "dist-path": "./dist",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "androidjs": "^1.0.5"
+  }
+}
