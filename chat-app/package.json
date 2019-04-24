@@ -1,5 +1,10 @@
 {
   "name": "myapp",
+
+  "package-name": "chatapp",
+  "app-name": "Chat App",
+  "icon": "./assets/icon/app3.png",
+
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -7,6 +12,9 @@
     "test": "node main.js",
     "build": "androidjs build"
   },
+  "permission": [
+    "android.permission.INTERNET"
+  ],
   "dist-path": "./dist",
   "author": "",
   "license": "ISC",

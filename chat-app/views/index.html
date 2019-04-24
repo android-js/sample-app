@@ -653,12 +653,24 @@
         conversation.scrollTop = conversation.scrollHeight;
     });
     var ip;
+
+    // updating to async call
+    // front.sendSync('get-ip');
+    // front.on('get-ip-result', (_ip) => {
+    //     console.log('ip', _ip);
+    //     ip = _ip;
+    //     document.getElementById('myip').innerHTML = ip;
+    // });
+
+
     front.sendSync('get-ip');
-    front.on('get-ip-result', (_ip) => {
+    front.on('ip', (_ip) => {
         console.log('ip', _ip);
         ip = _ip;
         document.getElementById('myip').innerHTML = ip;
     });
+
+    
     var user2;
     var socket2;
 
