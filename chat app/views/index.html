@@ -1,0 +1,778 @@
+<html>
+<head>
+    <script src="../assets/ipc/front.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,700,300">
+    <!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="https://rawgit.com/marvelapp/devices.css/master/assets/devices.min.css">-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.css">
+
+</head>
+<body>
+
+<div class="page">
+    <div class="marvel-device nexus5">
+        <div class="top-bar"></div>
+        <div class="sleep"></div>
+        <div class="volume"></div>
+        <div class="camera"></div>
+        <div class="screen">
+            <div class="screen-container">
+                <div class="status-bar">
+                    <div class="time"></div>
+                    <div class="battery">
+                        <i class="zmdi zmdi-battery"></i>
+                    </div>
+                    <div class="network">
+                        <i class="zmdi zmdi-network"></i>
+                    </div>
+                    <div class="wifi">
+                        <i class="zmdi zmdi-wifi-alt-2"></i>
+                    </div>
+                    <div class="star">
+                        <i class="zmdi zmdi-star"></i>
+                    </div>
+                </div>
+                <div class="chat">
+                    <div class="chat-container">
+                        <div class="user-bar">
+                            <div class="back">
+                                <i class="zmdi zmdi-arrow-left"></i>
+                            </div>
+                            <div class="avatar">
+                                <img src="https://www.digitalwebreview.com/wp-content/uploads/2018/09/default-user-image-300x300.png" alt="Avatar">
+                            </div>
+                            <div class="name">
+                                <span>Public Chat</span>
+                                <span class="status">online</span>
+                            </div>
+                            <div class="actions more">
+                                <i class="zmdi zmdi-more-vert"></i>
+                            </div>
+                            <div class="actions attachment">
+                                <i class="zmdi zmdi-attachment-alt"></i>
+                            </div>
+                            <div class="actions">
+                                <i class="zmdi zmdi-phone"></i>
+                            </div>
+                        </div>
+                        <div class="conversation">
+                            <div class="conversation-container">
+                            </div>
+                            <form class="conversation-compose" style="margin-bottom: 0px;">
+                                <div class="emoji">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" id="smiley" x="3147"
+                                         y="3209">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M9.153 11.603c.795 0 1.44-.88 1.44-1.962s-.645-1.96-1.44-1.96c-.795 0-1.44.88-1.44 1.96s.645 1.965 1.44 1.965zM5.95 12.965c-.027-.307-.132 5.218 6.062 5.55 6.066-.25 6.066-5.55 6.066-5.55-6.078 1.416-12.13 0-12.13 0zm11.362 1.108s-.67 1.96-5.05 1.96c-3.506 0-5.39-1.165-5.608-1.96 0 0 5.912 1.055 10.658 0zM11.804 1.01C5.61 1.01.978 6.034.978 12.23s4.826 10.76 11.02 10.76S23.02 18.424 23.02 12.23c0-6.197-5.02-11.22-11.216-11.22zM12 21.355c-5.273 0-9.38-3.886-9.38-9.16 0-5.272 3.94-9.547 9.214-9.547a9.548 9.548 0 0 1 9.548 9.548c0 5.272-4.11 9.16-9.382 9.16zm3.108-9.75c.795 0 1.44-.88 1.44-1.963s-.645-1.96-1.44-1.96c-.795 0-1.44.878-1.44 1.96s.645 1.963 1.44 1.963z"
+                                              fill="#7d8489"/>
+                                    </svg>
+                                </div>
+                                <input class="input-msg" name="input" placeholder="Type a message" autocomplete="off"
+                                       autofocus></input>
+                                <div class="photo">
+                                    <i class="zmdi zmdi-camera"></i>
+                                </div>
+                                <button class="send">
+                                    <div class="circle">
+                                        <i class="zmdi zmdi-mail-send"></i>
+                                    </div>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <center>
+        <div class="modal-content"><br><br>
+            <!--<span class="close">&times;</span>-->
+            Your id:<br><br><span id="myip"></span>
+            <p>Enter the id of peer</p>
+            <input type="text" id="user2_ip" placeholder="ip address" style="height: 40px;width: 100%; border:1px solid black;padding:10px;"><br><br>
+            <button id="connect" style="border:1px solid grey; height:40px; width: 50%;">connect</button>
+        </div>
+    </center>
+
+</div>
+
+
+</body>
+
+<style>
+    *, *:before, *:after {
+        box-sizing: inherit;
+    }
+
+    html {
+        box-sizing: border-box;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-family: "Roboto", sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    .page {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .marvel-device .screen {
+        text-align: left;
+    }
+
+    .screen-container {
+        height: 100%;
+    }
+
+    /* Status Bar */
+
+    .status-bar {
+        height: 25px;
+        background: #004e45;
+        color: #fff;
+        font-size: 14px;
+        padding: 0 8px;
+    }
+
+    .status-bar:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .status-bar div {
+        float: right;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 0 0 8px;
+        font-weight: 600;
+    }
+
+    /* Chat */
+
+    .chat {
+        height: calc(100% - 69px);
+    }
+
+    .chat-container {
+        height: 100%;
+    }
+
+    /* User Bar */
+
+    .user-bar {
+        height: 55px;
+        background: #005e54;
+        color: #fff;
+        padding: 0 8px;
+        font-size: 24px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .user-bar:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .user-bar div {
+        float: left;
+        transform: translateY(-50%);
+        position: relative;
+        top: 50%;
+    }
+
+    .user-bar .actions {
+        float: right;
+        margin: 0 0 0 20px;
+    }
+
+    .user-bar .actions.more {
+        margin: 0 12px 0 32px;
+    }
+
+    .user-bar .actions.attachment {
+        margin: 0 0 0 30px;
+    }
+
+    .user-bar .actions.attachment i {
+        display: block;
+        transform: rotate(-45deg);
+    }
+
+    .user-bar .avatar {
+        margin: 0 0 0 5px;
+        width: 36px;
+        height: 36px;
+    }
+
+    .user-bar .avatar img {
+        border-radius: 50%;
+        box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+        display: block;
+        width: 100%;
+    }
+
+    .user-bar .name {
+        font-size: 17px;
+        font-weight: 600;
+        text-overflow: ellipsis;
+        letter-spacing: 0.3px;
+        margin: 0 0 0 8px;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 110px;
+    }
+
+    .user-bar .status {
+        display: block;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0;
+    }
+
+    /* Conversation */
+
+    .conversation {
+        height: calc(100% - 12px);
+        position: relative;
+        background: #efe7dd url("https://cloud.githubusercontent.com/assets/398893/15136779/4e765036-1639-11e6-9201-67e728e86f39.jpg") repeat;
+        z-index: 0;
+    }
+
+    .conversation ::-webkit-scrollbar {
+        transition: all .5s;
+        width: 5px;
+        height: 1px;
+        z-index: 10;
+    }
+
+    .conversation ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .conversation ::-webkit-scrollbar-thumb {
+        background: #b3ada7;
+    }
+
+    .conversation .conversation-container {
+        height: calc(100% - 68px);
+        box-shadow: inset 0 10px 10px -10px #000000;
+        overflow-x: hidden;
+        padding: 0 16px;
+        margin-bottom: 5px;
+    }
+
+    .conversation .conversation-container:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Messages */
+
+    .message {
+        color: #000;
+        clear: both;
+        line-height: 18px;
+        font-size: 15px;
+        padding: 8px;
+        position: relative;
+        margin: 8px 0;
+        max-width: 85%;
+        word-wrap: break-word;
+        z-index: -1;
+    }
+
+    .message:after {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+    }
+
+    .metadata {
+        display: inline-block;
+        float: right;
+        padding: 0 0 0 7px;
+        position: relative;
+        bottom: -4px;
+    }
+
+    .metadata .time {
+        color: rgba(0, 0, 0, .45);
+        font-size: 11px;
+        display: inline-block;
+    }
+
+    .metadata .tick {
+        display: inline-block;
+        margin-left: 2px;
+        position: relative;
+        top: 4px;
+        height: 16px;
+        width: 16px;
+    }
+
+    .metadata .tick svg {
+        position: absolute;
+        transition: .5s ease-in-out;
+    }
+
+    .metadata .tick svg:first-child {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: perspective(800px) rotateY(180deg);
+        transform: perspective(800px) rotateY(180deg);
+    }
+
+    .metadata .tick svg:last-child {
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        -webkit-transform: perspective(800px) rotateY(0deg);
+        transform: perspective(800px) rotateY(0deg);
+    }
+
+    .metadata .tick-animation svg:first-child {
+        -webkit-transform: perspective(800px) rotateY(0);
+        transform: perspective(800px) rotateY(0);
+    }
+
+    .metadata .tick-animation svg:last-child {
+        -webkit-transform: perspective(800px) rotateY(-179.9deg);
+        transform: perspective(800px) rotateY(-179.9deg);
+    }
+
+    .message:first-child {
+        margin: 16px 0 8px;
+    }
+
+    .message.received {
+        background: #fff;
+        border-radius: 0px 5px 5px 5px;
+        float: left;
+    }
+
+    .message.received .metadata {
+        padding: 0 0 0 16px;
+    }
+
+    .message.received:after {
+        border-width: 0px 10px 10px 0;
+        border-color: transparent #fff transparent transparent;
+        top: 0;
+        left: -10px;
+    }
+
+    .message.sent {
+        background: #e1ffc7;
+        border-radius: 5px 0px 5px 5px;
+        float: right;
+    }
+
+    .message.sent:after {
+        border-width: 0px 0 10px 10px;
+        border-color: transparent transparent transparent #e1ffc7;
+        top: 0;
+        right: -10px;
+    }
+
+    /* Compose */
+
+    .conversation-compose {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        overflow: hidden;
+        height: 50px;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .conversation-compose div,
+    .conversation-compose input {
+        background: #fff;
+        height: 100%;
+    }
+
+    .conversation-compose .emoji {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        border-radius: 5px 0 0 5px;
+        flex: 0 0 auto;
+        margin-left: 8px;
+        width: 48px;
+    }
+
+    .conversation-compose .input-msg {
+        border: 0;
+        flex: 1 1 auto;
+        font-size: 16px;
+        margin: 0;
+        outline: none;
+        min-width: 50px;
+    }
+
+    .conversation-compose .photo {
+        flex: 0 0 auto;
+        border-radius: 0 0 5px 0;
+        text-align: center;
+        position: relative;
+        width: 48px;
+    }
+
+    .conversation-compose .photo:after {
+        border-width: 0px 0 10px 10px;
+        border-color: transparent transparent transparent #fff;
+        border-style: solid;
+        position: absolute;
+        width: 0;
+        height: 0;
+        content: "";
+        top: 0;
+        right: -10px;
+    }
+
+    .conversation-compose .photo i {
+        display: block;
+        color: #7d8488;
+        font-size: 24px;
+        transform: translate(-50%, -50%);
+        position: relative;
+        top: 50%;
+        left: 50%;
+    }
+
+    .conversation-compose .send {
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        flex: 0 0 auto;
+        margin-left: 8px;
+        margin-right: 8px;
+        padding: 0;
+        position: relative;
+        outline: none;
+    }
+
+    .conversation-compose .send .circle {
+        background: #008a7c;
+        border-radius: 50%;
+        color: #fff;
+        position: relative;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .conversation-compose .send .circle i {
+        font-size: 24px;
+        margin-left: 5px;
+    }
+
+    /* Small Screens */
+
+    @media (max-width: 768px) {
+        .marvel-device.nexus5 {
+            border-radius: 0;
+            flex: none;
+            padding: 0;
+            max-width: none;
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+        }
+
+        .marvel-device > .screen .chat {
+            visibility: visible;
+        }
+
+        .marvel-device {
+            visibility: hidden;
+        }
+
+        .marvel-device .status-bar {
+            display: none;
+        }
+
+        .screen-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .conversation {
+            height: calc(100vh - 55px);
+        }
+
+        .conversation .conversation-container {
+            height: calc(100vh - 120px);
+        }
+    }
+</style>
+<script>
+    /* Meme */
+
+    // var memes = [
+    //     'Dude, you smashed my turtle saying "I\'M MARIO BROS!"',
+    //     'Dude, you grabed seven oranges and yelled "I GOT THE DRAGON BALLS!"',
+    //     'Dude, you threw my hamster across the room and said "PIKACHU I CHOOSE YOU!"',
+    //     'Dude, you congratulated a potato for getting a part in Toy Story',
+    //     'Dude, you were hugging an old man with a beard screaming "DUMBLEDORE YOU\'RE ALIVE!"',
+    //     'Dude, you were cutting all my pinapples yelling "SPONGEBOB! I KNOW YOU\'RE THERE!"',
+    // ];
+
+    // var random = document.querySelector('#random');
+
+    // random.innerHTML = memes[Math.floor(Math.random() * memes.length)];
+
+    /* Time */
+
+    var deviceTime = document.querySelector('.status-bar .time');
+    var messageTime = document.querySelectorAll('.message .time');
+
+    deviceTime.innerHTML = moment().format('h:mm');
+
+    setInterval(function () {
+        deviceTime.innerHTML = moment().format('h:mm');
+    }, 1000);
+    //
+    // for (var i = 0; i < messageTime.length; i++) {
+    //     messageTime[i].innerHTML = moment().format('h:mm A');
+    // }
+
+    /* Message */
+
+    var form = document.querySelector('.conversation-compose');
+    var conversation = document.querySelector('.conversation-container');
+
+    form.addEventListener('submit', newMessage);
+
+    function newMessage(e) {
+        var input = e.target.input;
+
+        if (input.value) {
+            var message = buildMessage(input.value);
+            conversation.appendChild(message);
+            animateMessage(message);
+            sendMsg(input.value);
+        }
+
+        input.value = '';
+        conversation.scrollTop = conversation.scrollHeight;
+
+        e.preventDefault();
+    }
+
+    function sendMsg(msg) {
+        console.log('sending:', msg);
+
+        if (socket2 !== undefined) {
+            socket2.emit('msg', msg);
+        } else {
+            front.send('msg', msg);
+        }
+
+    }
+
+    function buildMessage(text) {
+        var element = document.createElement('div');
+
+        element.classList.add('message', 'sent');
+
+        element.innerHTML = text +
+            '<span class="metadata">' +
+            '<span class="time">' + moment().format('h:mm A') + '</span>' +
+            '<span class="tick tick-animation">' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck" x="2047" y="2061"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#92a58c"/></svg>' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="15" id="msg-dblcheck-ack" x="2063" y="2076"><path d="M15.01 3.316l-.478-.372a.365.365 0 0 0-.51.063L8.666 9.88a.32.32 0 0 1-.484.032l-.358-.325a.32.32 0 0 0-.484.032l-.378.48a.418.418 0 0 0 .036.54l1.32 1.267a.32.32 0 0 0 .484-.034l6.272-8.048a.366.366 0 0 0-.064-.512zm-4.1 0l-.478-.372a.365.365 0 0 0-.51.063L4.566 9.88a.32.32 0 0 1-.484.032L1.892 7.77a.366.366 0 0 0-.516.005l-.423.433a.364.364 0 0 0 .006.514l3.255 3.185a.32.32 0 0 0 .484-.033l6.272-8.048a.365.365 0 0 0-.063-.51z" fill="#4fc3f7"/></svg>' +
+            '</span>' +
+            '</span>';
+
+        return element;
+    }
+
+    function buildRMessage(text) {
+        modal.style.display = "none";
+        var element = document.createElement('div');
+        element.classList.add('message', 'received');
+
+        element.innerHTML = text + '<span class="metadata"><span class="time"></span></span>\n';
+
+        return element;
+    }
+
+    function animateMessage(message) {
+        setTimeout(function () {
+            var tick = message.querySelector('.tick');
+            tick.classList.remove('tick-animation');
+        }, 500);
+    }
+
+
+    //    ipc logic
+
+    front.on('msg', (text) => {
+        console.log('msg from second user');
+        let m = buildRMessage(text);
+        conversation.appendChild(m);
+        conversation.scrollTop = conversation.scrollHeight;
+    });
+    var ip;
+
+    // updating to async call
+    // front.sendSync('get-ip');
+    // front.on('get-ip-result', (_ip) => {
+    //     console.log('ip', _ip);
+    //     ip = _ip;
+    //     document.getElementById('myip').innerHTML = ip;
+    // });
+
+
+    front.sendSync('get-ip');
+    front.on('ip', (_ip) => {
+        console.log('ip', _ip);
+        ip = _ip;
+        document.getElementById('myip').innerHTML = ip;
+    });
+
+    
+    var user2;
+    var socket2;
+
+    function connectToIp(ip) {
+        console.log('connecting to ip', ip);
+        // socket2 = io('http://' + ip + ':3001');
+        socket2 = io(ip);
+        console.log(socket2);
+        socket2.emit('join-chat');
+        socket2.on('msg', (text) => {
+            console.log('msg from second user');
+            let m = buildRMessage(text);
+            conversation.appendChild(m);
+            conversation.scrollTop = conversation.scrollHeight;
+        });
+
+        socket2.on('hide-modal', () => {
+            modal.style.display = "none";
+        });
+        socket2.on('open-modal', () => {
+            modal.style.display = "block";
+        })
+    }
+
+    let connect_button = document.getElementById('connect');
+    let passed_ip = document.getElementById('user2_ip');
+    connect_button.onclick = () => {
+        if(passed_ip.value != ""){
+            // console.log(passed_ip.value);
+            connectToIp(passed_ip.value);
+            modal.style.display = "none";
+        }
+    };
+
+    front.on('hide-modal', () => {
+        modal.style.display = "none";
+    });
+    front.on('open-modal', () => {
+        modal.style.display = "block";
+    })
+</script>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('myModal');
+    modal.style.display = "block";
+
+    // var span = document.getElementsByClassName("close")[0];
+
+    // span.onclick = function() {
+    //   modal.style.display = "none";
+    // };
+
+    // When the user clicks anywhere outside of the modal, close it
+    // window.onclick = function(event) {
+    //   if (event.target === modal) {
+    //     modal.style.display = "none";
+    //   }
+    // }
+</script>
+
+<style>
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        /*padding-top: 100px;  Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+
+</html>

@@ -1,0 +1,29 @@
+{
+  "name": "myapp",
+
+  "package-name": "chatapp",
+  "app-name": "Chat App",
+  "icon": "./assets/icon/app3.png",
+
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "node main.js",
+    "build": "androidjs build"
+  },
+  "permission": [
+    "android.permission.INTERNET"
+  ],
+  "dist-path": "./dist",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "androidjs": "^1.0.0",
+    "ip": "^1.1.5",
+    "left-pad": "^1.3.0",
+    "localtunnel": "^1.9.1",
+    "public-ip": "^3.0.0",
+    "socket.io": "^2.2.0"
+  }
+}
