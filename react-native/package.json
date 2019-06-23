@@ -1,0 +1,14 @@
+{
+  "name": "TESTING",
+  "version": "1.0.0",
+  "description": "testing react-native app-builder for androidjs",
+  "project-type": "react-native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "androidjs serve"
+  },
+  "keywords": [],
+  "author": "Pankaj Devesh <pankajdevesh3@gmail.com>",
+  "license": "MIT"
+}
