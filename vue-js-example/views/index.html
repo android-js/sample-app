@@ -3,6 +3,9 @@
 <head>
 	<title>Vue Example</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="../assets/bootstrap.min.css">
+
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
@@ -13,9 +16,41 @@
 </style>
 
 <body>
-	<div id="app" class = "app">
-	  {{ message }}
+
+<!-- body container -->
+<div id="app" class = "app">
+	<div class="card" style="margin: 10px">
+	  <div class="card-body">
+	    <h5 class="card-title">Welcome to androidjs</h5>
+	    <h6 class="card-subtitle text-muted">AndroidJS + Vue</h6>
+	  </div>
 	</div>
-</body>
+	<ul class="list-group" style="margin-right: 10px;margin-left: 10px">
+	  <li class="list-group-item" @click="remove(u)" v-for="u in users">{{u}}</li>
+	</ul>
+</div>
+
+<!-- footer -->
+<nav  class="navbar fixed-bottom navbar-light bg-light">
+  <a class="navbar-brand" 
+  onclick="toggle_popover()" 
+  id="popover" 
+  data-container="body" 
+  data-toggle="popover" 
+  data-placement="top" 
+  data-content="Edit this page from views/index.html"
+  >views/index.html</a>
+</nav>
+
 <script type="text/javascript" src = "../assets/script.js"></script>
+<script src="../assets/jquery-3.3.1.slim.min.js"></script>
+<script src="../assets/popper.min.js"></script>
+<script src="../assets/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function toggle_popover() {
+		$('#popover').popover('toggle')
+	}
+</script>
+</body>
+
 </html>
