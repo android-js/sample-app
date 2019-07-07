@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "project-type": "native-app",
   "scripts": {
     "test": "node main.js",
     "build": "androidjs build"

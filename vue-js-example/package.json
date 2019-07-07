@@ -1,7 +1,8 @@
 {
   "name": "vue_example",
   "app-name":"Vue Example",
-  "package-name":"mypkg",
+  "package-name":"hello",
+  "project-type": "native-app",
   "icon":"./assets/icon/icon.png",
   "dist-path":"./dist",
   "permission":["android.permission.INTERNET"],
