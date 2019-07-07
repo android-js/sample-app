@@ -2,7 +2,7 @@
   "name": "myapp",
   "app-name": "myapp",
   "package-name" : "mypkg",
-  "project-type": "native-app",
+  "project-type": "webview",
   "icon": "./assets/icon/icon.png",
   "permission": ["android.permission.INTERNET", "android.permission.WRITE_EXTERNAL_STORAGE", "android.permission.READ_EXTERNAL_STORAGE"],
   "version": "1.0.0",

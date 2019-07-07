@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
-  "project-type": "native-app",
+  "project-type": "webview",
   "scripts": {
     "test": "node main.js",
     "build": "androidjs build"
