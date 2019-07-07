@@ -2,7 +2,7 @@
   "name": "myapp",
   "package-name": "music",
   "app-name": "My Music",
-  "project-type": "native-app",
+  "project-type": "webview",
   "icon": "./assets/icon/courses-icon-10.png",
   "version": "1.0.0",
   "description": "",

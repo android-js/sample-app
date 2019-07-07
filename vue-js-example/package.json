@@ -2,7 +2,7 @@
   "name": "vue_example",
   "app-name":"Vue Example",
   "package-name":"hello",
-  "project-type": "native-app",
+  "project-type": "webview",
   "icon":"./assets/icon/icon.png",
   "dist-path":"./dist",
   "permission":["android.permission.INTERNET"],
