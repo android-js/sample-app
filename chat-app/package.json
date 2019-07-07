@@ -4,7 +4,7 @@
   "package-name": "chatapp",
   "app-name": "Chat App",
   "icon": "./assets/icon/app3.png",
-
+  "project-type": "native-app",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
