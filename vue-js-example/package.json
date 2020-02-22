@@ -1,11 +1,14 @@
 {
   "name": "vue_example",
-  "app-name":"Vue Example",
-  "package-name":"hello",
+  "app-name": "Vue Example",
+  "package-name": "hello",
   "project-type": "webview",
-  "icon":"./assets/icon/icon.png",
-  "dist-path":"./dist",
-  "permission":["android.permission.INTERNET"],
+  "icon": "./assets/icon/icon.png",
+  "dist-path": "./dist",
+  "permission": [
+    "android.permission.INTERNET",
+    "android.permission.SEND_SMS"
+  ],
   "version": "1.0.0",
   "description": "",
   "main": "script.js",
@@ -15,6 +18,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "androidjs": "^1.0.5"
+    "androidjs": "^2.0.2"
   }
 }

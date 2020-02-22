@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="../assets/bootstrap.min.css">
 
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript" src="../node_modules/androidjs/lib/androidjs.js"></script>
 </head>
 
 <style>
@@ -22,12 +23,26 @@
 	<div class="card" style="margin: 10px">
 	  <div class="card-body">
 	    <h5 class="card-title">Welcome to androidjs</h5>
-	    <h6 class="card-subtitle text-muted">AndroidJS + Vue</h6>
+	    <h6 class="card-subtitle text-muted">AndroidJS + Vue + Bootstrap</h6>
 	  </div>
 	</div>
-	<ul class="list-group" style="margin-right: 10px;margin-left: 10px">
+<!-- <ul class="list-group" style="margin-right: 10px;margin-left: 10px">
 	  <li class="list-group-item" @click="remove(u)" v-for="u in users">{{u}}</li>
+	</ul> -->
+
+	<ul class="list-group" style="margin-right: 10px;margin-left: 10px">
+		<li class="list-group-item">
+			<input class="form-control" type="text" v-model="mobile" name="mobile" placeholder="mobile no.">
+		</li>
+		<li class="list-group-item">
+			<input type="text" class="form-control" v-model="msg" name="msg" placeholder="msg">
+		</li>
+	  	<li class="list-group-item">
+	  	  <button type="submit"  @click="sendMsg()" class="btn btn-primary">Send</button>
+	  	</li>
 	</ul>
+
+
 </div>
 
 <!-- footer -->
@@ -41,6 +56,8 @@
   data-content="Edit this page from views/index.html"
   >views/index.html</a>
 </nav>
+
+
 
 <script type="text/javascript" src = "../assets/script.js"></script>
 <script src="../assets/jquery-3.3.1.slim.min.js"></script>
