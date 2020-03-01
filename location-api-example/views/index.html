@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="../assets/bootstrap.min.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript" src="../node_modules/androidjs/lib/androidjs.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+
+</head>
+
+<style>
+	.app{
+		font-size:30px;
+	}
+	#map {
+		height: 400px;
+		width: 100%;
+	}
+</style>
+
+<body>
+
+<!-- body container -->
+<div id="app" class = "app">
+	<div id="map"></div>  
+	<ul>
+		<li>Latitude:{{latitude}}</li>
+		<li>longitude:{{longitude}}</li>
+	</ul>
+</div>
+
+
+
+<!-- footer -->
+<nav  class="navbar fixed-bottom navbar-light bg-light">
+  <a class="navbar-brand" 
+  onclick="toggle_popover()" 
+  id="popover" 
+  data-container="body" 
+  data-toggle="popover" 
+  data-placement="top" 
+  data-content="Edit this page from views/index.html"
+  >views/index.html</a>
+</nav>
+
+
+
+<script type="text/javascript" src = "../assets/script.js"></script>
+<script src="../assets/jquery-3.3.1.slim.min.js"></script>
+<script src="../assets/popper.min.js"></script>
+<script src="../assets/bootstrap.min.js"></script>
+<script type="text/javascript">
+	function toggle_popover() {
+		$('#popover').popover('toggle')
+	}
+</script>
+</body>
+
+</html>

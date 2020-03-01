@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "web-view",
+  "app-name": "Web App",
+  "package-name": "webview",
+  "project-type": "webview",
+  "icon": "./assets/icon/icon.png",
+  "dist-path": "./dist",
+  "permission": [
+    "android.permission.INTERNET"
+  ],
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start:dev": "node ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "androidjs": "^2.0.2"
+  }
+}

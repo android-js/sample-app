@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Webview Example</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="../assets/bootstrap.min.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script type="text/javascript" src="../node_modules/androidjs/lib/androidjs.js"></script>
+</head>
+
+<style>
+	.app{
+		font-size:30px;
+	}
+</style>
+
+<body>
+
+<div class="container h-100 d-flex justify-content-center">
+    <div class="jumbotron my-auto">
+      <h3 class="display-3" id='msg'>Hello, world!</h3>
+    </div>
+ </div>
+
+<script type="text/javascript" src = "../assets/script.js"></script>
+<script src="../assets/jquery-3.3.1.slim.min.js"></script>
+<script src="../assets/popper.min.js"></script>
+<script src="../assets/bootstrap.min.js"></script>
+<style type="text/css">
+  html, body {
+    height: 100%;
+  }
+
+  .container {
+    padding: 0px;
+  }
+
+  .display-3 {
+    font-size: 2.0rem;
+  }
+
+  .jumbotron {
+    background: #fff;
+  }
+
+</style>
+<script type="text/javascript">
+	function toggle_popover() {
+		$('#popover').popover('toggle')
+	}
+</script>
+</body>
+
+</html>
