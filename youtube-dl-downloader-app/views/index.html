@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>youtube-dl-downloader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script type="text/javascript" src="../node_modules/androidjs/lib/androidjs.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section>
+    <h1> Just type youtube link </h1>
+    download mp4 <input id="mp4_download_link" type="text" placeholder="https://youtube.com/type-url">
+    download mp3 <input id="mp3_download_link" type="text" placeholder="https://youtube.com/type-url">
+    <div>
+      <br>
+      ** The mp4 file will be downloaded to the video folder.<br>
+      ** The mp3 file will be downloaded to the music folder.
+      <br>
+      <br>
+    </div>
+    <div style="display: flex; margin-top: 15px;">
+      <div onclick="download();" class="btn check" style="background-color: dodgerblue; margin-right: 15px;">
+        Download
+      </div>
+      <div onclick="cancle();" class="btn cancle" style="background-color: tomato;">
+        reType
+      </div>
+    </div>
+  </section>
+  <!-- loading modal -->
+  <div class="loading_modal" style="display : none">
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div id="download_check" style="color : white; font-weight: bold;">
+      <div>Loading...</div>
+    </div>
+  </div>
+</body>
+<script>
+  let mp4_link = document.querySelector("#mp4_download_link");
+  let mp3_link = document.querySelector("#mp3_download_link");
+
+  // test for in window
+  if ( window.android == undefined ){
+    console.log("test");
+    var app = {};
+    app.getPath = function(){ return 'window-test'; }
+  }
+
+  function download() {
+    let data;
+    // inspect url
+    // refence_regex_code : https://stackoverflow.com/questions/3809401/what-is-a-good-regular-expression-to-match-a-url
+    let expression = /(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
+    let regex = new RegExp(expression);
+    if (mp4_link.value != '' && mp3_link.value != '') {
+      if (!regex.test(mp4_link.value) && !regex.test(mp3_link.value)) {
+        alert("your url was wrong");
+        return;
+      }
+      // send link storage|mp4|mp3
+      data = app.getPath('movies') + "|" + app.getPath('music') + "|" + mp4_link.value + "|" + mp3_link.value;
+      front.send('download-mp34', data);
+      return;
+    }
+    if (mp4_link.value != '') {
+      if (!regex.test(mp4_link.value)) {
+        alert("your url was wrong");
+        return;
+      }
+      data = app.getPath('movies') + "|" + mp4_link.value;
+      front.send('download-mp4', data);
+      return;
+    }
+    if (mp3_link.value != '') {
+      if (!regex.test(mp3_link.value)) {
+        alert("your url was wrong");
+        return;
+      }
+      data = app.getPath('music') + "|" + mp3_link.value;
+      front.send('download-mp3', data);
+      return;
+    }
+    alert("ERROR : link is empty or your url is invaild");
+  }
+  // download-return
+  front.on('download-return', (msg) => {
+    loading_modal('off');
+    alert('download ' + msg);
+  });
+
+  function loading_modal(msg) {
+    let loading_modal = document.querySelector('.loading_modal');
+    if (msg == 'on')
+      loading_modal.style.display = 'flex';
+    else
+      loading_modal.style.display = 'none';
+  }
+
+  function cancle() {
+    let input = document.querySelectorAll("input");
+    input.forEach(i => {
+      i.value = '';
+    });
+  }
+
+  front.on('download-start', (msg)=>{
+    loading_modal('on');
+  })
+
+  front.on('error-log', (msg)=>{
+    alert(`error : ${msg}`);
+    console.log(`error : ${msg}`);
+  });
+</script>
+</html>

@@ -1,0 +1,34 @@
+{
+    "version": "1.0.0",
+    "name": "youtube-dl-downloader-app",
+    "app-name": "youtube-dl-downloader-app",
+    "package-name": "udl",
+    "project-type": "webview",
+    "icon": "./assets/icon/icon.png",
+    "dist-path": "./dist",
+    "permission": [
+        "android.permission.INTERNET",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_EXTERNAL_STORAGE"
+    ],
+    "description": "",
+    "main": "main.js",
+    "scripts": {
+        "start:dev": "node .",
+        "build": "androidjs build"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "androidjs": "^2.0.4",
+        "magic-globals": "^0.9.1",
+        "ytdl-core": "^4.4.3"
+    },
+    "project-name": "youtube-dl-downloader-app",
+    "theme": {
+        "fullScreen": false,
+        "colorAccent": "#1976D2",
+        "colorPrimary": "#1976D2",
+        "colorPrimaryDark": "#1976D2"
+    }
+}
